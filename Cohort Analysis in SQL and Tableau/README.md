@@ -1,0 +1,2 @@
+#### Cohort Analysis
+This project aims to perform Cohort Analysis to analyze the retention rate of customers using SQL and Tableau. The dataset used in this project is sourced from the [Online Retail dataset](https://archive.ics.uci.edu/dataset/352/online+retail). The analysis results are visualized using Tableau and can be accessed through the following [Tableau Public link](https://public.tableau.com/app/profile/hai7497/viz/CohortAnalysis_16890938668340/CohortAnalysis).
