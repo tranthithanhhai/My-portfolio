@@ -9,7 +9,7 @@
 ### Project 4
  [Cohort Analysis in SQL and Tableau](https://github.com/haitran95/My-portfolio/tree/main/Cohort%20Analysis%20in%20SQL%20and%20Tableau)
 ### Project 5
- [SQL Music Store Analysis]([(https://www.amazon.com/books-used-books-textbooks/b?node=283155)](https://github.com/haitran95/My-portfolio/tree/main/SQL%20Music%20Store%20Analysis))
+ [SQL Music Store Analysis](https://github.com/haitran95/My-portfolio/tree/main/SQL%20Music%20Store%20Analysis))
 ### Project 6
  [Web Scraping on IT Book Amazon](https://github.com/haitran95/My-portfolio/tree/main/Web%20Scraping%20on%20IT%20Book%20Amazon)
  
