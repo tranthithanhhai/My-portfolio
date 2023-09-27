@@ -1,11 +1,18 @@
-### RFM Analysis
-![Segment scores](https://github.com/haitran95/My-portfolio/blob/main/Customer%20Segmentation%20using%20RFM%20Analysis/image/segment.PNG)
+# Customer Segmentation using RFM Analysis (Các bước phân khúc khách hàng theo mô hình RFM) 
 
-The dataset used for this project: [dataset_RFM](https://www.kaggle.com/datasets/mursideyarkin/mobile-games-ab-testing-cookie-cats)
+## 1. Giới thiệu mô hình RFM 
+**RFM** là viết tắt của **Recency**, **Frequency**, và **Monetary**. Đây là một mô hình  thường được sử dụng để phân đoạn và đánh giá khách hàng dựa trên hành vi mua sắm của họ. Cụ thể: 
+- **Recency (R)**: Đo lường thời gian kể từ lần mua hàng gần nhất của khách hàng. Khách hàng mua hàng gần đây sẽ có R-score càng cao.
+- **Frequency (F)**: Đo lường số lần mua hàng của khách hàng trong một khoảng thời gian nhất định. Khách hàng mua hàng thường xuyên sẽ có giá trị F cao hơn.
+- **Monetary (M)**: Đo lường tổng giá trị các giao dịch mua hàng của khách hàng. Khách hàng có tổng chi tiêu cao sẽ có giá trị M cao hơn.
 
-### About the Project
+Dựa trên các chỉ số RFM, chúng ta có thể phân khúc các nhóm khách hàng với các đặc điểm giá trị khác nhau đối với công ty. Mỗi loại khách hàng đòi hỏi các phương pháp tiếp thị khác nhau tương ứng. 
+## 2. Dataset 
+Bộ dữ liệu: [Dataset RFM](https://github.com/tranthithanhhai/My-portfolio/tree/main/Customer%20Segmentation%20using%20RFM%20Analysis/dataset) chứa thông tin về khách hàng, và các giao dịch mua sắm, bao gồm thông tin đơn hàng, vận chuyển, ngày đặt hàng, số tiền giao dịch,...
 
-Giới thiệu dự án ???
+Vì bộ dữ liệu có ngày giao dịch xảy ra khá lâu từ 01.2014 đến 12.2017. Nên thay vì chọn ngày hiện tại để tính Recency, tôi sẽ chọn ngày phân tích sau 3 tháng kể từ 31.12.2017, tức ngày 31.03.2018.
+
+Bộ dữ liệu có 3 bảng: **customer**, **sales**, **scores**. Dưới đây là các dòng đầu tiên cơ bản của bộ dữ liệu:
 
 Bảng **customer**
 
@@ -42,7 +49,14 @@ Bảng **scores**
 |At Risk|252|
 |At Risk|245|
 
-CODE 1 ????
+Sau khi có được chỉ số RFM cho từng khách hàng, dựa vào bảng scores, chúng ta có thể phân khúc khách hàng và có các chiến lược tiếp thị phù hợp cho từng loại khách hàng như sau: 
+
+![Segment scores](https://github.com/haitran95/My-portfolio/blob/main/Customer%20Segmentation%20using%20RFM%20Analysis/image/segment.PNG)
+
+Nguồn ảnh: [blog.tomorrowmarketers](https://blog.tomorrowmarketers.org/phan-tich-rfm-la-gi/#:~:text=Ph%C3%A2n%20t%C3%ADch%20RFM%20)
+
+## 3. Các bước thực hiện
+### Tính Recency, Frequency, Monetary 
 ```sql
 WITH RFM_table AS
 (
@@ -71,7 +85,7 @@ Kết quả  RFM_table
 |AB-10165|Alan Barnes|116|8|1113.84|
 |AB-10255|Alejandro Ballentine|257|9|914.53|
 
-CODE 2 ???
+### Tính RFM_Score
 ```sql
 WITH RFM_table AS
 (
@@ -110,7 +124,7 @@ Bảng **RFM_Score**
 |AS-10135|Adrian Shami|132|2|58.82|4|1|1|
 |JC-15340|Jasper Cacioppo|205|4|71.26|2|1|1|
 
-CODE 3 ??
+### Tính RFM Overall Score và Kết Hợp với Segment
 ```SQL
 WITH RFM_table AS
 (
@@ -160,9 +174,16 @@ Bảng **RFM**
 |AS-10135|Adrian Shami|132|2|58.82|4|1|1|411|New Customers|
 |JC-15340|Jasper Cacioppo|205|4|71.26|2|1|1|211|Hibernating customers|
 
+## 4. Vẽ treemap chart bằng Power BI
 ![Treemap chart](https://github.com/haitran95/My-portfolio/blob/main/Customer%20Segmentation%20using%20RFM%20Analysis/image/chart.PNG)
-### Conclusion
-With the above result of the Testing, we **should not** move the gate from level 30 to level 40.
+
+Dựa vào biểu đồ, ta có thể thấy phân khúc khác hàng chiếm tỷ trọng cao nhất là: At Risk, Hibernating customers, và Potential Loyalist. 
+- Với phân khúc Potential Loyalist, chúng ta có thể thấy rằng đây là nhóm khách hàng có Recency (R) không quá cao, Frequency (F) và Monetary (M) không cao như nhóm "Loyal Customers" nhưng có tiềm năng để trở thành khách hàng trung thành hơn trong tương lai. Chúng ta có thể đề xuất: 
+  + Cung cấp các *Chương trình Khuyến Mãi*: Tạo ra các chương trình khuyến mãi hoặc ưu đãi dành riêng cho nhóm này để tạo động lực cho họ mua sắm thường xuyên hơn. Các ưu đãi có thể bao gồm giảm giá, quà tặng hoặc điểm thưởng.
+  + Cung cấp các *Chương trình Tích Điểm hoặc Thẻ Thành Viên*:  để khuyến khích họ tiếp tục mua sắm và tích lũy điểm thưởng hoặc ưu đãi.
+- Với phân khúc At Risk (Khách hàng có nguy cơ mất), Hibernating customers (khách hàng đang ngủ đông), chúng ta cần thực hiện các chiến lược để tái kích thích sự tương tác và mua sắm:
+  + Ưu đãi đặc biệt: Cung cấp ưu đãi đặc biệt hoặc giảm giáquà tặng kèm, điểm thưởng.,  để kích thích họ quay lại mua sắm. Cố gắng tạo ra lợi ích ngay lập tức để họ có động lực mua hàng.
+  + Kích thích tương tác: có thể thông qua việc gửi email, thông báo, hoặc tin nhắn cá nhân.
 
 
 
