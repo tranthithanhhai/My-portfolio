@@ -1,5 +1,6 @@
 ### RFM Analysis
-![Segment_score](![Alt text](segment.PNG))
+![Segment scores](https://github.com/haitran95/My-portfolio/blob/main/Customer%20Segmentation%20using%20RFM%20Analysis/image/segment.PNG)
+
 The dataset used for this project: [dataset_RFM](https://www.kaggle.com/datasets/mursideyarkin/mobile-games-ab-testing-cookie-cats)
 
 ### About the Project
@@ -159,7 +160,7 @@ Bảng **RFM**
 |AS-10135|Adrian Shami|132|2|58.82|4|1|1|411|New Customers|
 |JC-15340|Jasper Cacioppo|205|4|71.26|2|1|1|211|Hibernating customers|
 
-
+![Treemap chart](https://github.com/haitran95/My-portfolio/blob/main/Customer%20Segmentation%20using%20RFM%20Analysis/image/chart.PNG)
 ### Conclusion
 With the above result of the Testing, we **should not** move the gate from level 30 to level 40.
 
