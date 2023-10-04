@@ -1,6 +1,6 @@
 ## My projects
 
-| Ordinary Project      | Project Name    | Project Link     |
+| No.      | Project Name    | Project Link     |
 |------------------|---------------------|--------------------|
 | Project 1               | Customer Segmentation using RFM Analysis | [Customer Segmentation using RFM Analysis](https://github.com/tranthithanhhai/My-portfolio/tree/main/Customer%20Segmentation%20using%20RFM%20Analysis) |
 | Project 2              | A/B Testing in Python  | [A/B Testing in Python](https://github.com/haitran95/My-portfolio/tree/main/AB%20Testing%20in%20Python) |
