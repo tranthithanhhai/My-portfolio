@@ -1,4 +1,13 @@
 # Cohort Analysis using SQL, Tableau and Python (Phân tích khách hàng theo nhóm)
+
+- Lý thuyết về Cohort Analysis (Khách hàng theo nhóm)
+    - 1.1 Khái niệm
+    - 1.2 Phân loại
+- Thực hành phân tích nhóm
+    - 2.1 Dataset
+    - 2.2 Thực hành phân tích nhóm bằng SQL, Tableau và Python
+    - 2.3 Thực hành phân tích nhóm bằng Python
+
 ## 1. Cohort Analysis (Khách hàng theo nhóm)
 ### 1.1 Khái niệm 
 - Cohort Ananlysis (Khách hàng theo nhóm) là phương pháp phân tích hành vi, trong đó: tập dữ liệu khách hàng được phân chia thành các nhóm, các nhóm này được gọi là các "cohort" cùng chia sẻ những đặc điểm, trải nghiệm trong cùng một khoảng thời gian. 
