@@ -5,8 +5,8 @@
     - 1.2 Phân loại
 - Thực hành phân tích nhóm
     - 2.1 Dataset
-    - 2.2 Thực hành phân tích nhóm bằng SQL, Tableau và Python
-    - 2.3 Thực hành phân tích nhóm bằng Python
+    - 2.2 Thực hành phân tích nhóm bằng Python
+    - 2.3 Thực hành phân tích nhóm bằng SQL, Tableau 
 
 ## 1. Cohort Analysis (Khách hàng theo nhóm)
 ### 1.1 Khái niệm 
@@ -31,8 +31,8 @@ Loại phân tích này dựa trên kích thước/giá trị sử dụng dịch
 ## 2. Thực hành phân tích nhóm 
 
 **Trong project này, tôi sẽ thực hiện phân tích cohort bằng việc chia tập khách hàng thành các nhóm đối tượng theo tháng tiếp nhận (Segment-based Cohorts), và thực hiện bằng 2 cách khác nhau:**
-- Cách 1: [Sử dụng SQL](https://github.com/tranthithanhhai/My-portfolio/blob/main/Cohort%20Analysis%20in%20SQL%20and%20Tableau/OnlineRetail_Query.sql) và [Trực Quan bằng Tableau](https://public.tableau.com/app/profile/hai7497/viz/CohortAnalysis_16890938668340/CohortAnalysis)
-- Cách 2: [Sử dụng Python](https://github.com/tranthithanhhai/My-portfolio/blob/main/Cohort%20Analysis%20in%20SQL%20and%20Tableau/Cohort_Analysis.ipynb)
+- Cách 1: [Sử dụng Python](https://github.com/tranthithanhhai/My-portfolio/blob/main/Cohort%20Analysis%20in%20SQL%20and%20Tableau/Cohort_Analysis.ipynb)
+- Cách 2: [Sử dụng SQL](https://github.com/tranthithanhhai/My-portfolio/blob/main/Cohort%20Analysis%20in%20SQL%20and%20Tableau/OnlineRetail_Query.sql) và [Trực Quan bằng Tableau](https://public.tableau.com/app/profile/hai7497/viz/CohortAnalysis_16890938668340/CohortAnalysis)
 
 ### 2.1 Dataset 
 Bộ dữ liệu [Online Retail dataset](https://archive.ics.uci.edu/dataset/352/online+retail) chứa tất cả các giao dịch diễn ra từ ngày 01/12/2010 đến ngày 09/12/2011 của một doanh nghiệp bán lẻ trực tuyến tại UK. Các thuộc tính bao gồm:
@@ -48,7 +48,74 @@ Bộ dữ liệu [Online Retail dataset](https://archive.ics.uci.edu/dataset/352
 | CustomerID    | Số Khách Hàng. Một số nguyên 5 chữ số, mỗi khách hàng được gán một số duy nhất.   |
 | Country       | Tên Quốc Gia. Được biểu diễn bằng chữ cái, đây là tên quốc gia mà mỗi khách hàng đang cư trú.   |
 
-### 2.2 Thực hành phân tích nhóm bằng SQL, Tableau. 
+### 2.2 Thực hành phân tích nhóm bằng Python ([Full Code](https://github.com/tranthithanhhai/My-portfolio/blob/main/Cohort%20Analysis%20in%20SQL%20and%20Tableau/Cohort_Analysis.ipynb))
+#### 2.1.1 EDA
+Xem 5 dòng đầu tiên của dữ liệu
+
+|   InvoiceNo | StockCode   | Description                         |   Quantity | InvoiceDate   |   UnitPrice |   CustomerID | Country        |
+|------------:|:------------|:------------------------------------|-----------:|:--------------|------------:|-------------:|:---------------|
+|      536365 | 85123A      | WHITE HANGING HEART T-LIGHT HOLDER  |          6 | 01-12-10 8:26 |        2.55 |        17850 | United Kingdom |
+|      536365 | 71053       | WHITE METAL LANTERN                 |          6 | 01-12-10 8:26 |        3.39 |        17850 | United Kingdom |
+|      536365 | 84406B      | CREAM CUPID HEARTS COAT HANGER      |          8 | 01-12-10 8:26 |        2.75 |        17850 | United Kingdom |
+|      536365 | 84029G      | KNITTED UNION FLAG HOT WATER BOTTLE |          6 | 01-12-10 8:26 |        3.39 |        17850 | United Kingdom |
+|      536365 | 84029E      | RED WOOLLY HOTTIE WHITE HEART.      |          6 | 01-12-10 8:26 |        3.39 |        17850 | United Kingdom |
+
+Kiểm tra các giá trị null
+|   InvoiceNo |   StockCode | Description                     |   Quantity | InvoiceDate    |   UnitPrice |   CustomerID | Country        |
+|------------:|------------:|:--------------------------------|-----------:|:---------------|------------:|-------------:|:---------------|
+|      536414 |       22139 | nan                             |         56 | 01-12-10 11:52 |        0    |          nan | United Kingdom |
+|      536544 |       21773 | DECORATIVE ROSE BATHROOM BOTTLE |          1 | 01-12-10 14:32 |        2.51 |          nan | United Kingdom |
+|      536544 |       21774 | DECORATIVE CATS BATHROOM BOTTLE |          2 | 01-12-10 14:32 |        2.51 |          nan | United Kingdom |
+|      536544 |       21786 | POLKADOT RAIN HAT               |          4 | 01-12-10 14:32 |        0.85 |          nan | United Kingdom |
+|      536544 |       21787 | RAIN PONCHO RETROSPOT           |          2 | 01-12-10 14:32 |        1.66 |          nan | United Kingdom |
+
+Sau khi làm sạch dữ liệu, báo cáo EDA chi tiết cho từng thuộc tính, bao gồm các giá trị thống kê, phân tích tương quan tại [File report HTML](https://github.com/tranthithanhhai/My-portfolio/blob/main/Cohort%20Analysis%20in%20SQL%20and%20Tableau/images/report.html).
+#### 2.1.2 Thực hành phân tích nhóm
+Để thực hiện cohort analysis, thì chúng ta cần tạo ra những cột dữ liệu sau:
+- Invoice period: Đại diện cho năm-tháng xảy ra giao dịch. Trong project này, tôi sẽ sử dụng `CohortMonth`, đại diện cho tháng xảy ra giao dịch. 
+- Cohort group: Chuỗi đại diện cho năm và tháng khách hàng mua hàng lần đầu tiên cho mỗi khách hàng
+- Cohort Index: 1 số tự nhiên ghi lại giai đoạn trong vòng đời của mỗi khách hàng (có thể là số ngày, số tuần, số tháng, số năm ...) số tháng trôi qua kể từ khi khách hàng mua hàng lần đầu tiên. Trong project này, `CohortIndex` đại diện cho số tháng trôi qua kể từ khi khách hàng lần đầu tiên sử dụng dịch vụ. 
+ 
+**Tạo cột InvoiceMonth và CohortMonth**
+
+|   InvoiceNo | StockCode   | Description                         |   Quantity | InvoiceDate         |   UnitPrice |   CustomerID | Country        | InvoiceMonth        | CohortMonth         |
+|------------:|:------------|:------------------------------------|-----------:|:--------------------|------------:|-------------:|:---------------|:--------------------|:--------------------|
+|      536365 | 85123A      | WHITE HANGING HEART T-LIGHT HOLDER  |          6 | 2010-12-01 08:26:00 |        2.55 |        17850 | United Kingdom | 2010-12-01 00:00:00 | 2010-12-01 00:00:00 |
+|      536365 | 71053       | WHITE METAL LANTERN                 |          6 | 2010-12-01 08:26:00 |        3.39 |        17850 | United Kingdom | 2010-12-01 00:00:00 | 2010-12-01 00:00:00 |
+|      536365 | 84406B      | CREAM CUPID HEARTS COAT HANGER      |          8 | 2010-12-01 08:26:00 |        2.75 |        17850 | United Kingdom | 2010-12-01 00:00:00 | 2010-12-01 00:00:00 |
+|      536365 | 84029G      | KNITTED UNION FLAG HOT WATER BOTTLE |          6 | 2010-12-01 08:26:00 |        3.39 |        17850 | United Kingdom | 2010-12-01 00:00:00 | 2010-12-01 00:00:00 |
+|      536365 | 84029E      | RED WOOLLY HOTTIE WHITE HEART.      |          6 | 2010-12-01 08:26:00 |        3.39 |        17850 | United Kingdom | 2010-12-01 00:00:00 | 2010-12-01 00:00:00 |
+
+**Tạo cột CohortIndex**
+
+|   InvoiceNo | StockCode   | Description                         |   Quantity | InvoiceDate         |   UnitPrice |   CustomerID | Country        | InvoiceMonth        | CohortMonth         |   CohortIndex |
+|------------:|:------------|:------------------------------------|-----------:|:--------------------|------------:|-------------:|:---------------|:--------------------|:--------------------|--------------:|
+|      536365 | 85123A      | WHITE HANGING HEART T-LIGHT HOLDER  |          6 | 2010-12-01 08:26:00 |        2.55 |        17850 | United Kingdom | 2010-12-01 00:00:00 | 2010-12-01 00:00:00 |             1 |
+|      536365 | 71053       | WHITE METAL LANTERN                 |          6 | 2010-12-01 08:26:00 |        3.39 |        17850 | United Kingdom | 2010-12-01 00:00:00 | 2010-12-01 00:00:00 |             1 |
+|      536365 | 84406B      | CREAM CUPID HEARTS COAT HANGER      |          8 | 2010-12-01 08:26:00 |        2.75 |        17850 | United Kingdom | 2010-12-01 00:00:00 | 2010-12-01 00:00:00 |             1 |
+|      536365 | 84029G      | KNITTED UNION FLAG HOT WATER BOTTLE |          6 | 2010-12-01 08:26:00 |        3.39 |        17850 | United Kingdom | 2010-12-01 00:00:00 | 2010-12-01 00:00:00 |             1 |
+|      536365 | 84029E      | RED WOOLLY HOTTIE WHITE HEART.      |          6 | 2010-12-01 08:26:00 |        3.39 |        17850 | United Kingdom | 2010-12-01 00:00:00 | 2010-12-01 00:00:00 |             1 |
+
+**Thống kê số lượng khách hàng "active" cho mỗi cohort**
+
+![cohort data](https://github.com/tranthithanhhai/My-portfolio/blob/main/Cohort%20Analysis%20in%20SQL%20and%20Tableau/images/cohort_data.PNG)
+
+**Sử dụng pivot table để chuyển đổi bảng sang dạng wide để dễ quan sát**
+
+![cohort count](https://github.com/tranthithanhhai/My-portfolio/blob/main/Cohort%20Analysis%20in%20SQL%20and%20Tableau/images/cohort_count_2.PNG)
+
+**Trực quan dữ liệu **
+
+![Number Retention Customers](https://github.com/tranthithanhhai/My-portfolio/blob/main/Cohort%20Analysis%20in%20SQL%20and%20Tableau/images/NumberRetentionCustomers.png)
+
+![Percentage of Monthly Active Users In Each Cohort](https://github.com/tranthithanhhai/My-portfolio/blob/main/Cohort%20Analysis%20in%20SQL%20and%20Tableau/images/PercentageMonthlyActiveUsersInEachCohort.png)
+
+![No. Monthly New Users In This Period](https://github.com/tranthithanhhai/My-portfolio/blob/main/Cohort%20Analysis%20in%20SQL%20and%20Tableau/images/NewUsers.png)
+
+![Retention rates](https://github.com/tranthithanhhai/My-portfolio/blob/main/Cohort%20Analysis%20in%20SQL%20and%20Tableau/images/RetentionRates.png)
+
+
+### 2.3 Thực hành phân tích nhóm bằng SQL, Tableau. 
 #### Bước 1: Làm sạch dữ liệu: loại bỏ các giá trị null và trùng lặp
 ```sql
 SELECT * FROM OnlineRetail
@@ -212,15 +279,7 @@ FROM #CohortPivot
 [File Code SQL](https://github.com/tranthithanhhai/My-portfolio/blob/main/Cohort%20Analysis%20in%20SQL%20and%20Tableau/OnlineRetail_Query.sql)
 #### Bước 3: Trực Quan bằng Tableau
 Thực hiện kết nối CSDL và tiến hành trực quan bằng [Tableau Public](https://public.tableau.com/app/profile/hai7497/viz/CohortAnalysis_16890938668340/CohortAnalysis)
-### 2.3 Thực hành phân tích nhóm bằng Python
 
-![Number Retention Customers](https://github.com/tranthithanhhai/My-portfolio/blob/main/Cohort%20Analysis%20in%20SQL%20and%20Tableau/images/NumberRetentionCustomers.png)
-
-![Percentage of Monthly Active Users In Each Cohort](https://github.com/tranthithanhhai/My-portfolio/blob/main/Cohort%20Analysis%20in%20SQL%20and%20Tableau/images/PercentageMonthlyActiveUsersInEachCohort.png)
-
-![No. Monthly New Users In This Period](https://github.com/tranthithanhhai/My-portfolio/blob/main/Cohort%20Analysis%20in%20SQL%20and%20Tableau/images/NewUsers.png)
-
-![Retention rates](https://github.com/tranthithanhhai/My-portfolio/blob/main/Cohort%20Analysis%20in%20SQL%20and%20Tableau/images/RetentionRates.png)
 
 
 
