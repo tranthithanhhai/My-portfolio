@@ -1,4 +1,6 @@
 # Cohort Analysis using SQL, Tableau and Python (Phân tích khách hàng theo nhóm)
+[![Jupyter Notebook](https://img.shields.io/badge/Jupyter%20Notebook-F37626?style=flat-square&logo=jupyter&logoColor=white)](https://github.com/tranthithanhhai/My-portfolio/blob/main/Cohort%20Analysis%20in%20SQL%20and%20Tableau/Cohort_Analysis.ipynb)
+[![SQL Server](https://img.shields.io/badge/SQL%20Server-CC2927?style=flat-square&logo=sql&logoColor=white)](https://github.com/tranthithanhhai/My-portfolio/blob/main/Cohort%20Analysis%20in%20SQL%20and%20Tableau/OnlineRetail_Query.sql)
 
 - Lý thuyết về Cohort Analysis (Khách hàng theo nhóm)
     - 1.1 Khái niệm
@@ -100,19 +102,29 @@ Sau khi làm sạch dữ liệu, báo cáo EDA chi tiết cho từng thuộc tí
 
 ![cohort data](https://github.com/tranthithanhhai/My-portfolio/blob/main/Cohort%20Analysis%20in%20SQL%20and%20Tableau/images/cohort_data.PNG)
 
-**Sử dụng pivot table để chuyển đổi bảng sang dạng wide để dễ quan sát**
+**Sử dụng pivot table  chuyển đổi bảng sang dạng wide để dễ quan sát**
 
 ![cohort count](https://github.com/tranthithanhhai/My-portfolio/blob/main/Cohort%20Analysis%20in%20SQL%20and%20Tableau/images/cohort_count_2.PNG)
 
-**Trực quan dữ liệu **
+**Trực quan dữ liệu**
 
 ![Number Retention Customers](https://github.com/tranthithanhhai/My-portfolio/blob/main/Cohort%20Analysis%20in%20SQL%20and%20Tableau/images/NumberRetentionCustomers.png)
 
-![Percentage of Monthly Active Users In Each Cohort](https://github.com/tranthithanhhai/My-portfolio/blob/main/Cohort%20Analysis%20in%20SQL%20and%20Tableau/images/PercentageMonthlyActiveUsersInEachCohort.png)
+Nhìn vào biểu đồ, ta có thể thấy:
+- Tháng 12/2010: Doanh nghiệp có 885 khách hàng mới. Tuy nhiên, sau 1 tháng, tức vào thời điểm tháng 11/2010 chỉ còn 324 trong số 885 khách hàng này còn sử dụng dịch vụ,...Sau 13 tháng, vào tháng 12/2011 chỉ còn 235 khách hàng còn sử dụng dịch vụ.
+- Tương tự như vậy, xét tháng 11/2011: Doanh nghiệp có 323 khách hàng mới, sau 1 tháng, tức tháng 12/2011: có 36 khách hàng trong tổng số 323 khách hàng quay trở lại sử dụng dịch vụ. Tuy nhiên, ở các tháng tiếp theo, không có khách hàng nào trong nhóm khách hàng mới của tháng 11/2011 còn sử dụng dịch vụ. 
+- Nhìn chung, số lượng khách hàng quay lại sử dụng dịch vụ sau 1 tháng giảm đi rất nhiều. 
 
 ![No. Monthly New Users In This Period](https://github.com/tranthithanhhai/My-portfolio/blob/main/Cohort%20Analysis%20in%20SQL%20and%20Tableau/images/NewUsers.png)
 
+Dựa vào biểu đồ đường theo dõi lượng khách hàng mới mà doanh nghiệp đạt được mỗi tháng, ta thấy:
+- Tháng 12/2010, số lượng khách hàng mới cao nhất (885 khách hàng), đây có thể là một tháng khá tích cực về chiến dịch tiếp thị. 
+- Giai đoạn 01/2011 - 03/2011 sau đó đã có sự giảm mạnh, và giảm dần qua từng tháng cho đến 08/2011, doanh nghiệp chỉ đạt 169 khách hàng mới. Trong giai đoạn này doanh nghiệp nên tạo các chương trình khuyến mãi và ưu đãi để thu hút sự quan tâm của các khách hàng tiềm năng.
+- Giai đoạn 11/2011 - 12/2011: Số lượng khách hàng mới đáng kể giảm đi và thậm chí tháng 12/2011 không có khách hàng mới. Doanh nghiệp cần xem xét lại nguyên nhân, có thể kể đến bao gồm: chất lượng sản phẩm giảm sút, đối thủ cạnh tranh tung ra các chiến dịch ưu đãi hấp dẫn hơn ?
+
 ![Retention rates](https://github.com/tranthithanhhai/My-portfolio/blob/main/Cohort%20Analysis%20in%20SQL%20and%20Tableau/images/RetentionRates.png)
+
+Nhìn vào biểu đồ tỷ lệ giữ chân khách hàng, ta có thể thấy thời điểm sau 6 tháng là thời điểm vàng để doanh nghiệp có thể tung ra các chiến lược marketing để thu hút khách hàng quay trở lại sử dụng dịch vụ. Vì tỷ lệ giữ chân khách hàng ở sau thời điểm này thường ổn định. Cụ thể, ở Cohort tháng 12/2011, ta có thể thấy tỷ lệ khách hàng quay lại đa phần > 35% so với các tỷ lệ biến động trước đó. 
 
 
 ### 2.3 Thực hành phân tích nhóm bằng SQL, Tableau. 
