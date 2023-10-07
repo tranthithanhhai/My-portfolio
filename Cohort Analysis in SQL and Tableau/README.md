@@ -207,6 +207,12 @@ Thực hiện kết nối CSDL và tiến hành trực quan bằng [Tableau Publ
 
 ![Number Retention Customers](https://github.com/tranthithanhhai/My-portfolio/blob/main/Cohort%20Analysis%20in%20SQL%20and%20Tableau/images/NumberRetentionCustomers.png)
 
+![Percentage of Monthly Active Users In Each Cohort](https://github.com/tranthithanhhai/My-portfolio/blob/main/Cohort%20Analysis%20in%20SQL%20and%20Tableau/images/PercentageMonthlyActiveUsersInEachCohort.png)
+
+![No. Monthly New Users In This Period](https://github.com/tranthithanhhai/My-portfolio/blob/main/Cohort%20Analysis%20in%20SQL%20and%20Tableau/images/NewUsers.png)
+
+![Retention rates](https://github.com/tranthithanhhai/My-portfolio/blob/main/Cohort%20Analysis%20in%20SQL%20and%20Tableau/images/RetentionRates.png)
+
 
 
 
