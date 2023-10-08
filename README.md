@@ -7,7 +7,7 @@
 |  3    | **A/B Testing**: Python  | [A/B Testing in Python](https://github.com/haitran95/My-portfolio/tree/main/AB%20Testing%20in%20Python) |
 |  4    | **Web Scraping Real Estate HCMC**: Python, Selenium | [Web Scraping Real Estate HCMC](https://github.com/haitran95/My-portfolio/tree/main/Web%20Scraping%20Real%20Estate%20HCMC) |
 |  5   | **Web Scraping on IT Book Amazon**: Python, Selenium  | [Web Scraping on IT Book Amazon](https://github.com/haitran95/My-portfolio/tree/main/Web%20Scraping%20on%20IT%20Book%20Amazon) |
-|  6    | **Visualizing IT Book Market Data on Amazon Book**: Tableau | [Visualizing IT Book Market Data on Amazon Book](https://public.tableau.com/app/profile/hai7497/viz/visualizeAmazonbook/Details) |
+|  6    | **Visualizing IT Book Market Data on Amazon Book**: Tableau | [Visualizing IT Book Market Data on Amazon Book](https://github.com/tranthithanhhai/My-portfolio/blob/main/Visualizing%20IT%20Book%20Market%20Data%20on%20Amazon%20Book/README.md) |
 
 
 
