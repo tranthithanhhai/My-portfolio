@@ -24,10 +24,12 @@ Giới thiệu về bộ dữ liệu: bộ dữ liệu được crawl từ Amazo
 
 Lưu ý: Trước khi trực quan hóa, bộ dữ liệu đã được làm sạch, loại bỏ các records có giá trị null. 
 ## 3. Trực quan hóa bằng Tableau
-[Tableau Public](https://public.tableau.com/app/profile/hai7497/viz/visualizeAmazonbook/Details)
+Xem tại đường dẫn [Tableau Public](https://public.tableau.com/app/profile/hai7497/viz/visualizeAmazonbook/Details)
 ## 4. Nhận xét
 ### 4.1 Dashboard tổng quan
 Dashboard tổng quan cung cấp cho người dùng một số thông tin cơ bản như: tổng số lượng sách, số tác giả, số nhà xuất bản số lượt reviews, mức giá trung bình, điểm đánh giá trung bình cho tất cả 36 danh mục con. 
+
+![overview](https://github.com/tranthithanhhai/My-portfolio/blob/main/Visualizing%20IT%20Book%20Market%20Data%20on%20Amazon%20Book/image/overview.png)
 
 Các biểu đồ còn lại cung cấp thông tin top các quyển sách, tác giả, nhà xuất bản được đa số độc giả quan tâm dựa trên số lượt reviews. 
 Dựa vào biểu đồ donut, ta có thể thấy số lượng sách hiện có trên website nhiều nhất nằm ở danh mục Programming Languages: 1122 đầu sách, chiếm 31.95%; kế đến là danh mục Computer Science: 807 đầu sách, chiếm 22.98%; thấp nhất là danh mục Securiry & Encryption: 294, chỉ chiếm 8.37%.
@@ -43,9 +45,10 @@ Với các thông tin cơ bản trên, nhóm đưa ra một số chiến lực m
 
 ### 4.2 Dashboard chi tiết 
 Phần dashborad chi tiết được thiết kế để đi sâu tìm hiểu thông tin về các danh mục con, cụ thể nên tập trung vào các nhà xuất bản nào, top các quyển sách nào đang được quan tâm trong danh mục con đó.
- 
+
 Trong Tableau, có 2 khái niệm cơ bản là dimension và measure, trong đó: dimension thường là các biến định tính, kiểu chuỗi, ngày tháng; measure thường là các biến định lượng. Trong phần này, nhóm thiết kế bộ filter để có thể chọn lựa các dimension và measure tương ứng, tùy theo nhu cầu của người dùng để tiết kiệm không gian dashboard.
 
+![detail](https://github.com/tranthithanhhai/My-portfolio/blob/main/Visualizing%20IT%20Book%20Market%20Data%20on%20Amazon%20Book/image/detail.png)
 
 Như đã đề cập ở phần dashboard tổng quan, Programming Language danh mục cần được chú trọng vì nhiều độc giả quan tâm nhất. Cụ thể, trong danh mục Programming Language, Python là ngôn ngữ được quan tâm nhiều nhất khi có 73,483 lượt reviews,  Python Crash Course, 2nd Edition: A Hands-On, Project-Based Introduction to Programming và Hands-On Machine Learning with Scikit-Learn, Keras, and TensorFlow: Concepts, Tools, and Techniques to Build Intelligent Systems là 2 quyển sách được reviews nhiều nhất với rating trung bình là 4.7 và 4.8. Với số lượt reviews và rating khá cao, người bán có thể cân nhắc tăng giá sản phẩm để tăng doanh thu hoặc kết hợp chương trình khuyến mãi bán theo combo với các sản phẩm có cùng doanh mục nhưng lại có lượt reviews thấp để cải thiện doanh số cho các sản phẩm này. 
 
