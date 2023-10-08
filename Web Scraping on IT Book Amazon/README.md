@@ -14,8 +14,9 @@ Về phần đánh giá nhau cầu của thị trường, mặc dù số lượn
 [Amazon.com: Books](https://www.amazon.com/books-used-books-textbooks/b?node=283155)
 #### Công cụ và các thư viện cần cài đặt
 Đồ án cho bộ dữ liệu được crawl từ trang Amazon Book, sử dụng các framework và công cụ như sau:
-•	Ngôn ngữ lập trình: Python
-•	Công cụ crawl dữ liệu: Selenium
+- Ngôn ngữ lập trình: Python
+- Công cụ crawl dữ liệu: Selenium
+
 
 
 
