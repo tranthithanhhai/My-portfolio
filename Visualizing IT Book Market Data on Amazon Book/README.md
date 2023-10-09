@@ -2,7 +2,7 @@
 ## 1.Giới thiệu 
 Với sự phát triển không ngừng của công nghệ thông tin, nhu cầu tìm kiếm thông tin và cập nhật kiến thức về lĩnh vực này ngày càng được nhiều người quan tâm.
 
-Trong đồ án này, tôi sẽ trình bày kết quả phân tích và đánh giá thị trường sách trong lĩnh vực công nghệ thông tin trên trang Amazon Book.
+Trong đồ án này, tôi sẽ trình bày kết quả phân tích và đánh giá thị trường sách trong lĩnh vực công nghệ thông tin trên trang [Amazon Book](https://www.amazon.com/books-used-books-textbooks/b?node=283155).
 
 Qua đó, với tư cách độc giả, bạn đọc có thể tìm hiểu về xu hướng nghiên cứu và sự quan tâm của công chúng dành cho chuyên ngành cụ thể nào, để có thể cập nhật kiến thức cần thiết, bắt kịp xu thế thị trường. 
 
