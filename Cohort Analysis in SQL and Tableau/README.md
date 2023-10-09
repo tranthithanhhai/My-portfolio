@@ -18,7 +18,7 @@
 #### 1.2.1 **Phân tích Nhóm dựa trên thời gian (Time-based Cohorts)**
 Trong loại phân tích này, chúng ta chia khách hàng thành các nhóm *dựa trên khoảng thời gian cụ thể*. Loại phân tích này hữu ích khi chúng ta muốn *xem xét tỷ lệ mất khách hàng(churn rate)* của doanh nghiệp. 
 
-**Ví dụ**, giả định khách hàng được tiếp nhận vào Q1 của năm, và rời bỏ trung bình sau 18 tháng. Trong khi đó, những người được tiếp nhận vào Q2 thì trung bình hủy bỏ sau 6 tháng. Sự chênh lệch này cho thấy có thể đã xảy ra một số vấn đề với quy trình tiếp nhận của chúng tôi vào Q2. Chúng ta cần điều tra thêm xem điều gì đã xảy ra. Có thể trường hợp là vào Q2, một đối thủ bắt đầu cung cấp các ưu đãi tốt hơn cho khách hàng của chúng tôi - sự cải thiện về chất lượng hoặc giảm giá.
+**Ví dụ**, giả định khách hàng được tiếp nhận vào Q1 của năm, và rời bỏ trung bình sau 18 tháng. Trong khi đó, những người được tiếp nhận vào Q2 thì trung bình rời bỏ sau 6 tháng. Sự chênh lệch này cho thấy có thể đã xảy ra một số vấn đề với quy trình tiếp nhận của doanh nghiệp vào Q2. Chúng ta cần điều tra thêm xem điều gì đã xảy ra. Có thể là do vào Q2, một số đối thủ bắt đầu cung cấp các ưu đãi tốt hơn cho khách hàng. 
     
 #### 1.2.1 **Phân tích Nhóm dựa trên đặc điểm (Segment-based Cohorts)**
 Loại này phân tích này nhóm khách hàng dựa trên nhiều đặc điểm khác nhau. 
