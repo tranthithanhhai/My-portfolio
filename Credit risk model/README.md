@@ -4,8 +4,8 @@
 
 ![LendingClub](https://upload.wikimedia.org/wikipedia/commons/0/01/LendingClub_logo.svg)
 ## 1. Giới thiệu
-- Dự đoán rủi ro tín dụng là quá trình đánh giá và ước tính khả năng một người hoặc một tổ chức không thể hoàn trả các khoản vay hoặc nợ tín dụng của họ. 
-- Việc đánh giá rủi ro tín dụng và dự đoán khả năng vỡ nợ dựa trên người dùng vay trực tuyến đặc biệt quan trọng. 
+- Rủi ro tín dụng phát sinh từ khả năng người vay hoặc đối tác sẽ không thực hiện được các nghĩa vụ tài chính mà họ cam kết thanh toán cho ngân hàng/tổ chức tín dụng.  
+- Việc đánh giá rủi ro tín dụng và dự đoán khả năng vỡ nợ của người vay đặc biệt quan trọng. 
 
 Đồ án này sử dụng mô hình Logistic để đo lường xác suất một khách hàng vay vốn là khách hàng tốt. Trên cơ sở đó, tổ chức tín dụng sẽ xác định được mức rủi ro tín dụng của khách hàng vay vốn nhằm đưa ra quyết định cho vay phù hợp
 
