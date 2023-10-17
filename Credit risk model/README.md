@@ -11,9 +11,10 @@
 
 ## 2. Dataset
 
-Bộ dữ liệu được lấy từ **LendingClub**, một trong những nền tảng P2P lending lớn và nổi tiếng tại Hoa Kỳ. ([tải tại đây](https://www.kaggle.com/datasets/epsilon22/lending-club-loan-two))
+Bộ dữ liệu được lấy từ [LendingClub](https://www.lendingclub.com/), một trong những nền tảng P2P lending lớn và nổi tiếng tại Hoa Kỳ. ([tải tại đây](https://www.kaggle.com/datasets/epsilon22/lending-club-loan-two))
 
 ## 3. Model 
 - Model Logistic Regression built from scratch
 - Using Scikit-Learn library
+
 [Full code](https://github.com/tranthithanhhai/My-portfolio/blob/main/Credit%20risk%20model/%5BLC%5D%20Classification_Logistic_Regression.ipynb)
